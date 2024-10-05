@@ -51,7 +51,7 @@ export default function StudentPage() {
 
   const callEnrollApi = async () => {
     try {
-      /* const resp = await axios.post(
+      const resp = await axios.post(
         "/api/enrollments",
         {
           courseNo,
@@ -59,7 +59,7 @@ export default function StudentPage() {
         {
           headers: { Authorization: `Bearer ${token}` },
         }
-      ); */
+      );
       setCourseNo("");
       loadMyCourses();
     } catch (error) {
@@ -81,12 +81,12 @@ export default function StudentPage() {
   const callDropApi = async (drop_courseNo: string) => {
     setLoadingDropping(drop_courseNo);
     try {
-      /* const resp = await axios.delete("/api/enrollments", {
+      const resp = await axios.delete("/api/enrollments", {
         data: {
           courseNo: drop_courseNo,
         },
         headers: { Authorization: `Bearer ${token}` },
-      }); */
+      });
       loadMyCourses();
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -116,7 +116,7 @@ export default function StudentPage() {
         <Title order={4}>My Course(s)</Title>
 
         {myEnrollments &&
-          myEnrollments.map((enroll:any|undefined|unknown) => (
+          myEnrollments.map((enroll:any) => (
             <Group my="xs" key={enroll.courseNo}>
               <Text>
                 {enroll.courseNo} - {enroll.course.title}
