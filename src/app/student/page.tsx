@@ -116,7 +116,7 @@ export default function StudentPage() {
         <Title order={4}>My Course(s)</Title>
 
         {myEnrollments &&
-          myEnrollments.map((enroll: any | unknown) => (
+          myEnrollments.map((enroll:any|undefined|unknown) => (
             <Group my="xs" key={enroll.courseNo}>
               <Text>
                 {enroll.courseNo} - {enroll.course.title}
